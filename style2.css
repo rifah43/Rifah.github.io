@@ -1,8 +1,13 @@
+@font-face {
+    font-family: myFont;
+    src: url(pics&fonts/Legend\ of\ the\ Elves.ttf);
+    }
 #left{
     float: left;
     width: 45%;
     left: 60px;
     position: relative;
+    font-family: myFont;
 }
 #right{
     top: 30px;
@@ -22,12 +27,10 @@ span{
     ;
   }
   
-  
 #sch,#ach {
     padding: 15px;
-    font-size: medium;
-    background: #cce5ffa0;
-    color: rgb(2, 2, 94);
+    font-size: 15pxm;
+    color: rgb(255, 245, 101);
     margin: 5px;
     line-height: 3;
     width: 70%;
