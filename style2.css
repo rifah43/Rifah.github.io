@@ -1,0 +1,34 @@
+#left{
+    float: left;
+    width: 45%;
+    left: 60px;
+    position: relative;
+}
+#right{
+    top: 30px;
+    right: 150px;
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    float: right;
+}
+span{
+    padding: 15px;
+    font-size: 25px;
+    font-style:oblique;
+    font-weight: 10px;
+    width: 80%;
+    color: azure;
+    ;
+  }
+  
+  
+#sch,#ach {
+    padding: 15px;
+    font-size: medium;
+    background: #cce5ffa0;
+    color: rgb(2, 2, 94);
+    margin: 5px;
+    line-height: 3;
+    width: 70%;
+  }
