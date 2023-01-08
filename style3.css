@@ -27,4 +27,5 @@ li:hover{
     font-size: 50px;
     text-align: center;
     font-family: myFont;
+    width: 100%;
 }
