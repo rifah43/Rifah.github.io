@@ -24,5 +24,6 @@ li:hover{
 .image{
     color: rgb(253, 83, 4);
     font-size: 50px;
+    text-align: left;
     font-family: myFont;
 }
