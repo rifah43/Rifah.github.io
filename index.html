@@ -1,42 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="r.jpg"/>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="basic.css">
-    <title>Rifah's personal website</title>
-</head>
-<body>
-    <div id="navigation">
-        <nav>
-            <a href="./index.html" class="active">Home</a>
-            <a href="./education.html">Education</a>
-            <a href="./a&s.html">Awards & Scholarships</a>
-            <a href="./hobbies.html">Hobbies</a>
-        </nav>
-    </div>
-    <br><br><br>
-    <div id="left">
-        <p>Hi! I am Rifah Tashfiha Faria. <br>
-            Currently, I am studying software engineering at the university of Dhaka.
-            I am a learner who searches for new knowledge every day. My aim is to be a good human being. I want to become a qualified software engineer.</p>
-    </div>
-    <div id="right">
-        <img class="bottom" src="me.jpg" width="450px" height="295px"> 
-        <br>
-        <span> "Let us always meet each other with smile,
-        for the smile is the beginning of love." — Mother Teresa</span>
-    </div>
-    <div>
-        <marquee direction="scroll" id="intro"><br> Hope you are having a nice day!</marquee>
-    </div>
-</body>
-<footer>
-    <div id="footer">
-        ©- Rifah Tashfiha Faria
-    </div>
-</footer>
-</html> 
+    <head>
+        <met#aeb3b8et="utf-8">
+        <title>Rifah's Portfolio</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="img/logo.png"/>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 sticky-lg-top vh-100">
+                    <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+                        <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
+                        <h1 class="text-primary mt-2">Rifah Tashfiha Faria</h1>
+                        <div class="mb-4" style="height: 22px;">
+                            <h4 class="typed-text-output d-inline-block text-light"></h4>
+                            <div class="typed-text d-none">Web Designer, Web Developer, Full-Stack Developer, Apps Designer, Apps Developer</div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-auto mb-3">
+                            <!-- <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a> -->
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://www.linkedin.com/in/faria-rifah-9268951a3/"><i class="fab fa-linkedin-in"></i></a>
+                            <!-- <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a> -->
+                            <a class="btn btn-secondary btn-square mx-1" href="mailto:bsse1213@iit.du.ac.bd"><i class="fa fa-envelope"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/rifah43"><i class="fab fa-github"></i></a>
+                        </div>
+                        <div class="d-flex align-items-end justify-content-between border-top">
+                            <a href="/img/CV.pdf" class="btn w-50 border-end" download>Download CV</a>
+                            <a href="#contact" class="btn w-50 btn-scroll">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <!-- About Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">About Me</h1>
+                        <p>Hi! I am Rifah Tashfiha Faria. Currently, I am studying software engineering at the university of Dhaka. I am a learner who searches for new knowledge every day. My aim is to be a good human being. I want to become a qualified software engineer.</p>
+                        <div class="row mb-4">
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Name:</span> Rifah Tashfiha Faria
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Degree:</span> Bachelor of Science in Software Engineering
+                            </div>
+                            <!-- <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Experience:</span> 10 Years
+                            </div> -->
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Phone:</span> +8801761617686
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Email:</span> bsse1213@iit.du.ac.bd
+                            </div>
+                            <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Address:</span> Azimpur, Dhaka, Bangladesh
+                            </div>
+                            <!-- <div class="col-sm-6 py-1">
+                                <span class="fw-medium text-primary">Freelance:</span> Available
+                            </div> -->
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">02</h1>
+                                    <div class="ps-3">
+                                        <p class="mb-0">Years of</p>
+                                        <h5 class="mb-0">Experience</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">100</h1>
+                                    <div class="ps-3">
+                                        <p class="mb-0">Happy</p>
+                                        <h5 class="mb-0">Clients</h5>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-md-4 col-lg-6 col-xl-4">
+                                <div class="d-flex bg-secondary p-4">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">10</h1><h1>+</h1>
+                                    <div class="ps-3">
+                                        <p class="mb-0">Complete</p>
+                                        <h5 class="mb-0">Projects</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- About End -->
+
+                    <!-- Skills Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Skills</h1>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">HTML</p>
+                                        <p class="mb-2">95%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">CSS</p>
+                                        <p class="mb-2">85%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">PHP</p>
+                                        <p class="mb-2">90%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">ReactJS</p>
+                                        <p class="mb-2">80%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">NodeJS</p>
+                                        <p class="mb-2">90%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Javascript</p>
+                                        <p class="mb-2">90%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">AngularJS</p>
+                                        <p class="mb-2">95%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Java</p>
+                                        <p class="mb-2">85%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">C/C++</p>
+                                        <p class="mb-2">90%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="skill mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Python</p>
+                                        <p class="mb-2">70%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Skills End -->
+
+                    <!-- Expericence Start -->
+                    <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Expericence</h1>
+                        <div class="border-start border-2 border-light pt-2 ps-5">
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Program Coordinator</h5>
+                                <p class="mb-2">Boostenauts  | <small>Feb 2020- Jan 2022</small></p>
+                                <p>Arranged some small workshops on basic computer skills</p>
+                            </div>
+                            <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Graphic Designer</h5>
+                                <p class="mb-2">Admission Crackers | <small>Nov 2020- Jun 2022</small></p>
+                                <p>Designed Posters, Cover Photos and educational contents</p>
+                            </div>
+                            <!-- <div class="position-relative mb-4">
+                                <span class="bi bi-arrow-right fs-4 text-light position-absolute" style="top: -5px; left: -50px;"></span>
+                                <h5 class="mb-1">Web Designer</h5>
+                                <p class="mb-2">Soft Company | <small>2000 - 2050</small></p>
+                                <p>Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum stet lorem diam</p>
+                            </div> -->
+                        </div>
+                    </section>
+                    <!-- Expericence End -->
+
+                    <!-- Services Start -->
+                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Services</h1>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Web Design</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fab fa-2x fa-android mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Apps Development</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fa fa-2x fa-search mx-auto mb-4"></i>
+                                    <h5 class="mb-2">SEO</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Content Creating</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section> -->
+                    <!-- Services End -->
+
+                    <!-- Education Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5"><i class="fas fa-graduation-cap"></i> Education</h1>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fas fa-2x fa-user-graduate mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Bachelor of Science in Software Engineering (BSSE)</h5>
+                                    <p class="mb-0">CGPA: 3.47 (upto 3-1)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fas fa-2x fa-school mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Higher Secondary Certificate (HSC)- 2019</h5>
+                                    <p class="mb-0">Science Group | GPA: 5.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fas fa-2x fa-book-reader mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Secondary School Certificate (SSC)- 2017</h5>
+                                    <p class="mb-0">Science Group | GPA: 5.00</p>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Content Creating</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </section>
+                    <!-- Education End -->
+
+                    <!-- Portfolio Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Hobbies</h1>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 text-center mb-2">
+                                        <ul class="list-inline mb-4" id="portfolio-flters">
+                                            <li class="btn btn-secondary active"  data-filter="*"><i class="fa fa-star me-2"></i>All</li>
+                                            <li class="btn btn-secondary" data-filter=".first"><i class="fas fa-palette me-2"></i>Graphics Design</li>
+                                            <li class="btn btn-secondary" data-filter=".second"><i class="fas fa-basketball-ball me-2"></i>Games and Sports</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row portfolio-container">
+                                    <div class="col-md-6 mb-4 portfolio-item first">
+                                        <div class="position-relative overflow-hidden mb-2">
+                                            <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 portfolio-item second">
+                                        <div class="position-relative overflow-hidden mb-2">
+                                            <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 portfolio-item first">
+                                        <div class="position-relative overflow-hidden mb-2">
+                                            <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4 portfolio-item second">
+                                        <div class="position-relative overflow-hidden mb-2">
+                                            <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Portfolio End -->
+
+                    <!-- Testimonial Start -->
+                    <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5">Testimonial</h1>
+                        <div class="owl-carousel testimonial-carousel">
+                            <div class="text-left">
+                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                                    <div class="ps-3">
+                                        <p class="text-primary fs-5 mb-1">Client Name</p>
+                                        <i>Profession</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                                    <div class="ps-3">
+                                        <p class="text-primary fs-5 mb-1">Client Name</p>
+                                        <i>Profession</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                                <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet eirmod eos, labore diam clita</p>
+                                <div class="d-flex align-items-center">
+                                    <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                                    <div class="ps-3">
+                                        <p class="text-primary fs-5 mb-1">Client Name</p>
+                                        <i>Profession</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section> -->
+                    <!-- Testimonial End -->
+
+                    <!-- Contact Start -->
+                    <!-- <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
+                        <h1 class="title pb-3 mb-5">Contact Me</h1>
+                        <p class="mb-4">Feel free to get in touch with me by filling out the form below:</p>
+                        <form method="post">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" name="name"
+                                            placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0 bg-secondary" name="email"
+                                            placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0 bg-secondary" name="subject"
+                                            placeholder="Subject" required>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0 bg-secondary" name="message"
+                                            placeholder="Leave a message here" style="height: 200px" required></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>                    -->
+                    <!-- Contact End -->
+
+                    <!-- Footer Start -->
+                    <section class="wow fadeIn" data-wow-delay="0.1s">
+                        <div class="bg-secondary text-light text-center p-5">
+                            <div class="d-flex justify-content-center mb-4">
+                                <!-- <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a> -->
+                            <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://www.linkedin.com/in/faria-rifah-9268951a3/"><i class="fab fa-linkedin-in"></i></a>
+                            <!-- <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a> -->
+                            <a class="btn btn-secondary btn-square mx-1" href="mailto:bsse1213@iit.du.ac.bd"><i class="fa fa-envelope"></i></a>
+                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/rifah43"><i class="fab fa-github"></i></a>
+                        </div>
+                            <div class="d-flex justify-content-center mb-3">
+                                <a class="text-light px-3 border-end" href="#">Privacy</a>
+                                <a class="text-light px-3 border-end" href="#">Terms</a>
+                                <a class="text-light px-3 border-end" href="#">FAQs</a>
+                                <a class="text-light px-3" href="#">Help</a>
+                            </div>
+							
+							<p class="m-0">&copy;  - Rifah Tashfiha Faria</p>
+                        </div>
+                    </section>
+                    <!-- Footer End -->
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/typed/typed.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.querySelector('form');
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    
+                    const name = form.querySelector('[name="name"]').value;
+                    const email = form.querySelector('[name="email"]').value;
+                    const subject = form.querySelector('[name="subject"]').value;
+                    const message = form.querySelector('[name="message"]').value;
+        
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'process_contact.php', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            const response = xhr.responseText;
+                            console.log(response); 
+                        }
+                    };
+        
+                    const data = `name=${name}&email=${email}&subject=${subject}&message=${message}`;
+                    xhr.send(data);
+                });
+            });
+        </script> -->
+        
+        
+    </body>
+</html>
