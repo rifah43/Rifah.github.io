@@ -35,6 +35,7 @@
                 <div class="col-lg-4 sticky-lg-top vh-100">
                     <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
                         <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
+                        <!-- <br> -->
                         <h1 class="text-primary mt-2">Rifah Tashfiha Faria</h1>
                         <div class="mb-4" style="height: 22px;">
                             <h4 class="typed-text-output d-inline-block text-light"></h4>
@@ -314,6 +315,44 @@
                     </section>
                     <!-- Education End -->
 
+                    <!-- Projects Start -->
+                    <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="title pb-3 mb-5"><i class="fas fa-graduation-cap"></i> Projects</h1>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <a href="https://nimble-panda-66fd1c.netlify.app/">
+                                    <div class="service-item">
+                                        <i class="fas fa-2x fa-chess mx-auto mb-4"></i>
+                                        <h5 class="mb-2">Minichess: AI player</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fas fa-2x fa-school mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Higher Secondary Certificate (HSC)- 2019</h5>
+                                    <p class="mb-0">Science Group | GPA: 5.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fas fa-2x fa-book-reader mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Secondary School Certificate (SSC)- 2017</h5>
+                                    <p class="mb-0">Science Group | GPA: 5.00</p>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <div class="service-item">
+                                    <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
+                                    <h5 class="mb-2">Content Creating</h5>
+                                    <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </section>
+                    <!-- Projects End -->
+
                     <!-- Portfolio Start -->
                     <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="title pb-3 mb-5"><i class="far fa-heart mx-auto mb-4"></i> Hobbies</h1>
@@ -508,7 +547,19 @@
                 });
             });
         </script> -->
-        
+        <script>
+            function addEffectAndRedirect(event) {
+                event.preventDefault(); // Prevent the default link behavior
+                const serviceItem = event.currentTarget.querySelector(".service-item");
+                // Add your desired effect to the service-item div (e.g., a CSS class for animation)
+                serviceItem.classList.add("your-effect-class");
+                
+                // Delay the redirection for the effect to play (adjust the delay time as needed)
+                setTimeout(function () {
+                    window.location.href = event.currentTarget.getAttribute("href");
+                }, 1000); // 1000 milliseconds (1 second) delay in this example
+            }
+        </script>
         
     </body>
 </html>
