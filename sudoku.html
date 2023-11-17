@@ -18,8 +18,8 @@
         table {
             background-color: bisque;
             border-collapse: collapse;
-            margin: 20px auto;
-            width: 180px; /* Set a maximum width */
+            margin: 15px auto;
+            width: 180px; 
             height: 180px;
         }
 
@@ -50,18 +50,17 @@
             color: rgb(0, 0, 0);
             border: rgb(255, 255, 255) solid 2px;
             height: 50px;
-            width: 110px;
+            width: 107px;
             border-radius: 5px;
             font-size: smaller;
-            margin: 3px; /* Add some margin */
+            margin: 2px; 
         }
 
-        /* Media query for smaller screens */
         @media only screen and (max-width: 600px) {
             td,
             input,
             button {
-                font-size: 5vw; /* Adjust font size for smaller screens */
+                font-size: 5vw; 
             }
         }
     </style>
@@ -124,7 +123,6 @@
         function checkSolution() {
     let solutionCorrect = true;
 
-    // Check rows and columns
     for (let i = 0; i < 9; i++) {
         let rowValues = new Set();
         let colValues = new Set();
@@ -203,7 +201,6 @@
         }
 
         function generateSudoku() {
-    // Create a solved Sudoku board
     let base = [
         [1, 2, 3, 4, 5, 6, 7, 8, 9],
         [4, 5, 6, 7, 8, 9, 1, 2, 3],
@@ -216,19 +213,16 @@
         [9, 1, 2, 3, 4, 5, 6, 7, 8]
     ];
 
-    // Shuffle 3 sets of rows
     for (let i = 0; i < 9; i += 3) {
         shuffleArray(base.slice(i, i + 3));
     }
 
-    // Create the puzzle by removing some numbers
     let puzzle = [];
     for (let i = 0; i < 9; i++) {
         puzzle[i] = base[i].slice(0, 9);
     }
 
-    // Remove some numbers from the puzzle
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 65; i++) {
         let row = Math.floor(Math.random() * 9);
         let col = Math.floor(Math.random() * 9);
         puzzle[row][col] = 0;
