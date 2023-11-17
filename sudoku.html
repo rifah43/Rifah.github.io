@@ -76,34 +76,37 @@
     </div>
 
     <script>
+        let sudokuBoard = [];
+
         function generateBoard() {
-            document.getElementById("sudoku-board").innerHTML = "";
+    document.getElementById("sudoku-board").innerHTML = "";
 
-            let board = generateSudoku();
+    sudokuBoard = generateSudoku();
 
-            let table = document.getElementById("sudoku-board");
-            for (let i = 0; i < 9; i++) {
-                let row = table.insertRow(i);
-                for (let j = 0; j < 9; j++) {
-                    let cell = row.insertCell(j);
-                    let input = document.createElement("input");
-                    input.type = "text";
-                    input.maxLength = 1;
-                    input.size = 1;
-                    input.addEventListener("input", function () {
-                        validateInput(this);
-                    });
-                    cell.appendChild(input);
+    let table = document.getElementById("sudoku-board");
+    for (let i = 0; i < 9; i++) {
+        let row = table.insertRow(i);
+        for (let j = 0; j < 9; j++) {
+            let cell = row.insertCell(j);
+            let input = document.createElement("input");
+            input.type = "text";
+            input.maxLength = 1;
+            input.size = 1;
+            input.addEventListener("input", function () {
+                validateInput(this);
+                updateSudokuBoard(i, j, parseInt(this.value) || 0);
+            });
+            cell.appendChild(input);
 
-                    if (board[i][j] !== 0) {
-                        input.value = "";
-                        input.placeholder = board[i][j];
-                        input.disabled = false;
-                        input.classList.add("pre-determined");
-                    }
-                }
+            if (sudokuBoard[i][j] !== 0) {
+                input.value = "";
+                input.placeholder = sudokuBoard[i][j];
+                input.disabled = false;
+                input.classList.add("pre-determined");
             }
         }
+    }
+}
 
         function validateInput(input) {
             input.value = input.value.replace(/[^1-9]/g, '');
@@ -113,39 +116,85 @@
             }
         }
 
+        function updateSudokuBoard(row, col, value) {
+            sudokuBoard[row][col] = value;
+        }
+
+
         function checkSolution() {
-            let table = document.getElementById("sudoku-board");
-            let solutionCorrect = true;
+    let solutionCorrect = true;
 
-            for (let i = 0; i < 9; i++) {
-                let rowValues = new Set();
-                let colValues = new Set();
+    // Check rows and columns
+    for (let i = 0; i < 9; i++) {
+        let rowValues = new Set();
+        let colValues = new Set();
 
-                for (let j = 0; j < 9; j++) {
-                    let rowInput = table.rows[i].cells[j].querySelector("input").value;
-                    let colInput = table.rows[j].cells[i].querySelector("input").value;
+        for (let j = 0; j < 9; j++) {
+            let rowInput = sudokuBoard[i][j];
+            let colInput = sudokuBoard[j][i];
 
-                    if ((rowValues.has(rowInput) && rowInput !== "") || (colValues.has(colInput) && colInput !== "")) {
-                        solutionCorrect = false;
-                        break;
+            if (!isValidInput(rowInput) || (!isPreDeterminedValue(rowInput) && rowValues.has(rowInput))) {
+                solutionCorrect = false;
+                break;
+            }
+
+            if (!isValidInput(colInput) || (!isPreDeterminedValue(colInput) && colValues.has(colInput))) {
+                solutionCorrect = false;
+                break;
+            }
+
+            rowValues.add(rowInput);
+            colValues.add(colInput);
+        }
+
+        if (!solutionCorrect) {
+            break;
+        }
+    }
+
+    if (solutionCorrect && validateSubgrids()) {
+        alert("Congratulations! You've solved the Sudoku puzzle.");
+    } else {
+        alert("Sorry, the solution is not correct. Keep trying!");
+    }
+}
+
+        function isPreDeterminedValue(value) {
+            return value !== 0;
+        }
+
+        function isValidInput(value) {
+            return /^[1-9]$/.test(value);
+        }
+
+        function validateSubgrids() {
+            let subgridSize = 3;
+
+            for (let row = 0; row < 9; row += subgridSize) {
+                for (let col = 0; col < 9; col += subgridSize) {
+                    let subgridValues = new Set();
+
+                    for (let i = row; i < row + subgridSize; i++) {
+                        for (let j = col; j < col + subgridSize; j++) {
+                            let inputValue = sudokuBoard[i][j];
+
+                            if (!isValidInput(inputValue)) {
+                                return false;
+                            }
+
+                            subgridValues.add(inputValue);
+                        }
                     }
 
-                    rowValues.add(rowInput);
-                    colValues.add(colInput);
-                }
-
-                if (!solutionCorrect) {
-                    break;
+                    if (subgridValues.size !== 9) {
+                        return false;
+                    }
                 }
             }
 
-            if (solutionCorrect) {
-                alert("Congratulations! You've solved the Sudoku puzzle.");
-            } else {
-                alert("Sorry, the solution is not correct. Keep trying!");
-            }
+            return true;
         }
-        
+
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -154,51 +203,40 @@
         }
 
         function generateSudoku() {
-            // Create a solved Sudoku board
-            let base = [
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [4, 5, 6, 7, 8, 9, 1, 2, 3],
-                [7, 8, 9, 1, 2, 3, 4, 5, 6],
-                [2, 3, 4, 5, 6, 7, 8, 9, 1],
-                [5, 6, 7, 8, 9, 1, 2, 3, 4],
-                [8, 9, 1, 2, 3, 4, 5, 6, 7],
-                [3, 4, 5, 6, 7, 8, 9, 1, 2],
-                [6, 7, 8, 9, 1, 2, 3, 4, 5],
-                [9, 1, 2, 3, 4, 5, 6, 7, 8]
-            ];
+    // Create a solved Sudoku board
+    let base = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        [4, 5, 6, 7, 8, 9, 1, 2, 3],
+        [7, 8, 9, 1, 2, 3, 4, 5, 6],
+        [2, 3, 4, 5, 6, 7, 8, 9, 1],
+        [5, 6, 7, 8, 9, 1, 2, 3, 4],
+        [8, 9, 1, 2, 3, 4, 5, 6, 7],
+        [3, 4, 5, 6, 7, 8, 9, 1, 2],
+        [6, 7, 8, 9, 1, 2, 3, 4, 5],
+        [9, 1, 2, 3, 4, 5, 6, 7, 8]
+    ];
 
-            // Shuffle 3 sets of rows
-            for (let i = 0; i < 9; i += 3) {
-                shuffleArray(base.slice(i, i + 3));
-            }
+    // Shuffle 3 sets of rows
+    for (let i = 0; i < 9; i += 3) {
+        shuffleArray(base.slice(i, i + 3));
+    }
 
-            // Transpose the board to shuffle columns within each 3x3 grid
-            // base = base[0].map((col, i) => base.map(row => row[i]));
+    // Create the puzzle by removing some numbers
+    let puzzle = [];
+    for (let i = 0; i < 9; i++) {
+        puzzle[i] = base[i].slice(0, 9);
+    }
 
-            // Shuffle columns within each 3x3 grid
-            // for (let i = 0; i < 3; i++) {
-            //     for (let j = 0; j < 9; j += 3) {
-            //         const randomIndex1 = j + Math.floor(Math.random() * 3);
-            //         const randomIndex2 = j + Math.floor(Math.random() * 3);
-            //         [base[i][randomIndex1], base[i][randomIndex2]] = [base[i][randomIndex2], base[i][randomIndex1]];
-            //     }
-            // }
+    // Remove some numbers from the puzzle
+    for (let i = 0; i < 3; i++) {
+        let row = Math.floor(Math.random() * 9);
+        let col = Math.floor(Math.random() * 9);
+        puzzle[row][col] = 0;
+    }
 
-            // Create the puzzle by removing some numbers
-            let puzzle = [];
-            for (let i = 0; i < 9; i++) {
-                puzzle[i] = base[i].slice(0, 9);
-            }
+    return puzzle;
+}
 
-            // Remove some numbers from the puzzle
-            for (let i = 0; i < 60; i++) {
-                let row = Math.floor(Math.random() * 9);
-                let col = Math.floor(Math.random() * 9);
-                puzzle[row][col] = 0;
-            }
-
-            return puzzle;
-        }
     </script>
 
 </body>
