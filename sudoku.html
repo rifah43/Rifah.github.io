@@ -1,74 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3x3 Sudoku</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h2{
+            color: aliceblue;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
         table {
+            background-color: bisque;
             border-collapse: collapse;
             margin: 20px auto;
         }
 
         td {
-            width: 30px;
-            height: 30px;
+            width: 7vw;
+            height: 5vh;
             text-align: center;
             border: 1px solid #ccc;
+            background-color: rgb(188, 252, 221);
+            color: black;
             font-size: 18px;
+        }
+
+        input {
+            background-color: rgb(255, 255, 255);
+            width: 7vw;
+            height: 5vh;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .pre-determined {
+            background-color: rgb(188, 252, 221);
+            color: black;
+        }
+        button{
+            background-color: rgb(188, 252, 221);
+            color: rgb(0, 0, 0);
+            border:rgb(255, 255, 255) solid 2px;
+            height: 8vh;
+            width: 40vw;
+            border-radius: 5%;
+            font-size: large;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
 </head>
-<body>
 
-    <h1>3x3 Sudoku</h1>
+<body onload="generateBoard()">
+    <h2>Solve if you love sudoku!</h2>
     <table id="sudoku-board"></table>
-    <button onclick="generateBoard()">Generate Board</button>
+    <div><button onclick="generateBoard()">Reset Game</button>
+        <button onclick="checkSolution()">Check Solution</button>
+    </div>
 
     <script>
         function generateBoard() {
-            // Clear previous board
             document.getElementById("sudoku-board").innerHTML = "";
 
-            // Generate a random board
-            let board = generateRandomBoard();
+            let board = generateSudoku();
 
-            // Create the table
             let table = document.getElementById("sudoku-board");
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 9; i++) {
                 let row = table.insertRow(i);
-                for (let j = 0; j < 3; j++) {
+                for (let j = 0; j < 9; j++) {
                     let cell = row.insertCell(j);
-                    cell.textContent = board[i][j] !== 0 ? board[i][j] : "";
+                    let input = document.createElement("input");
+                    input.type = "text";
+                    input.maxLength = 1;
+                    input.size = 1;
+                    input.addEventListener("input", function () {
+                        validateInput(this);
+                    });
+                    cell.appendChild(input);
+
+                    if (board[i][j] !== 0) {
+                        input.value = "";
+                        input.placeholder = board[i][j];
+                        input.disabled = false;
+                        input.classList.add("pre-determined");
+                    }
                 }
             }
         }
 
-        function generateRandomBoard() {
+        function generateSudoku() {
             let base = [
-                [1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]
+                [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                [4, 5, 6, 7, 8, 9, 1, 2, 3],
+                [7, 8, 9, 1, 2, 3, 4, 5, 6],
+                [2, 3, 4, 5, 6, 7, 8, 9, 1],
+                [5, 6, 7, 8, 9, 1, 2, 3, 4],
+                [8, 9, 1, 2, 3, 4, 5, 6, 7],
+                [3, 4, 5, 6, 7, 8, 9, 1, 2],
+                [6, 7, 8, 9, 1, 2, 3, 4, 5],
+                [9, 1, 2, 3, 4, 5, 6, 7, 8],
             ];
 
-            // Shuffle rows
             for (let i = base.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [base[i], base[j]] = [base[j], base[i]];
             }
 
-            // Transpose to shuffle columns
             base = base[0].map((col, i) => base.map(row => row[i]));
 
-            // Create the final board by taking the first 3 rows and columns
-            let board = [];
-            for (let i = 0; i < 3; i++) {
-                board[i] = base[i].slice(0, 3);
+            let puzzle = [];
+            for (let i = 0; i < 9; i++) {
+                puzzle[i] = base[i].slice(0, 9);
             }
 
-            return board;
+            for (let i = 0; i < 60; i++) {
+                let row = Math.floor(Math.random() * 9);
+                let col = Math.floor(Math.random() * 9);
+                puzzle[row][col] = 0;
+            }
+
+            return puzzle;
+        }
+
+        function validateInput(input) {
+            input.value = input.value.replace(/[^1-9]/g, '');
+
+            if (input.value.length > 1) {
+                input.value = input.value.slice(0, 1);
+            }
+        }
+
+        function checkSolution() {
+            let table = document.getElementById("sudoku-board");
+            let solutionCorrect = true;
+
+            for (let i = 0; i < 9; i++) {
+                let rowValues = new Set();
+                let colValues = new Set();
+
+                for (let j = 0; j < 9; j++) {
+                    let rowInput = table.rows[i].cells[j].querySelector("input").value;
+                    let colInput = table.rows[j].cells[i].querySelector("input").value;
+
+                    if (rowValues.has(rowInput) || colValues.has(colInput) || rowInput === "" || colInput === "") {
+                        solutionCorrect = false;
+                        break;
+                    }
+
+                    rowValues.add(rowInput);
+                    colValues.add(colInput);
+                }
+
+                if (!solutionCorrect) {
+                    break;
+                }
+            }
+
+            if (solutionCorrect) {
+                alert("Congratulations! You've solved the Sudoku puzzle.");
+            } else {
+                alert("Sorry, the solution is not correct. Keep trying!");
+            }
         }
     </script>
 
 </body>
+
 </html>
