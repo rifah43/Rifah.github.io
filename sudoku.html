@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Sudoku</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>3x3 Sudoku</h1>
+    <table id="sudoku-board"></table>
+    <button onclick="generateBoard()">Generate Board</button>
+
+    <script>
+        function generateBoard() {
+            // Clear previous board
+            document.getElementById("sudoku-board").innerHTML = "";
+
+            // Generate a random board
+            let board = generateRandomBoard();
+
+            // Create the table
+            let table = document.getElementById("sudoku-board");
+            for (let i = 0; i < 3; i++) {
+                let row = table.insertRow(i);
+                for (let j = 0; j < 3; j++) {
+                    let cell = row.insertCell(j);
+                    cell.textContent = board[i][j] !== 0 ? board[i][j] : "";
+                }
+            }
+        }
+
+        function generateRandomBoard() {
+            let base = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ];
+
+            // Shuffle rows
+            for (let i = base.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [base[i], base[j]] = [base[j], base[i]];
+            }
+
+            // Transpose to shuffle columns
+            base = base[0].map((col, i) => base.map(row => row[i]));
+
+            // Create the final board by taking the first 3 rows and columns
+            let board = [];
+            for (let i = 0; i < 3; i++) {
+                board[i] = base[i].slice(0, 3);
+            }
+
+            return board;
+        }
+    </script>
+
+</body>
+</html>
